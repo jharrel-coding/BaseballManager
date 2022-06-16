@@ -69,6 +69,7 @@
         <div class="input-group-text">
             <form:radiobutton class="form-check-input" label="right" path="hittingHand" value="false" />
         </div>
+
     </div>
 
     <input class="btn btn-primary" type="submit" value="Edit">

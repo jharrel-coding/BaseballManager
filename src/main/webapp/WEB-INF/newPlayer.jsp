@@ -27,10 +27,11 @@
     <title>Insert title here</title>
 </head>
 <body>
+        <div>
             <form:form action="/players/create" method="post" modelAttribute="newPlayer">
                 <div class="row">
                     <form:label path="jerseyNumber" class="form-label">Number</form:label>
-                    <form:input path="jerseyNumber" class="form-control" type="number"/>
+                    <form:input path="jerseyNumber" class="form-control" type="number" value=""/>
                     <form:errors path="jerseyNumber" class="text-danger" />
                 </div>
 
@@ -70,8 +71,16 @@
                     </div>
                 </div>
 
-                    <input class="btn btn-primary" type="submit" value="submit">
+                <div class="row input_group">
+                    <form:select path="team">
+                        <c:forEach var = "team" items="${allTeams}">
+                            <option value="${ team.id }">${ team.teamName }</option>
+                        </c:forEach>
+                    </form:select>
                 </div>
+
+                <input class="btn btn-primary" type="submit" value="submit">
+        </div>
             </form:form>
 </body>
 </html>

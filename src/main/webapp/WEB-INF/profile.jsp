@@ -29,8 +29,8 @@
 <body>
     <div class="container">
         <h1># ${ player.jerseyNumber } | ${ player.firstName} ${player.lastName }</h1>
-
-        <p>Postion: ${ player.position }</p>
+        <p>Team: ${player.team.teamName}</p>
+        <p>Position: ${ player.position }</p>
         <p>Hits: ${ player.hittingHand }</p>
         <p>Throws: ${player.throwingHand}</p>
     </div>

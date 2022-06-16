@@ -2,6 +2,8 @@ package com.jason.baseballmanager.controllers;
 
 import com.jason.baseballmanager.models.Player;
 import com.jason.baseballmanager.services.PlayerService;
+import com.jason.baseballmanager.services.ScheduleService;
+import com.jason.baseballmanager.services.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +19,12 @@ public class PlayerController {
     @Autowired
     private PlayerService playerService;
 
+    @Autowired
+    private TeamService teamService;
+
+    @Autowired
+    private ScheduleService scheduleService;
+
     @GetMapping("/")
     public String players(Model model) {
 
@@ -26,8 +34,8 @@ public class PlayerController {
     }
 
     @GetMapping("/players/new/")
-    public String newPlayer(@ModelAttribute("newPlayer") Player newPlayer) {
-
+    public String newPlayer(@ModelAttribute("newPlayer") Player newPlayer, Model model) {
+        model.addAttribute("allTeams", teamService.getAll());
         return "newPlayer.jsp";
     }
 
@@ -46,6 +54,7 @@ public class PlayerController {
     @GetMapping("/players/{id}")
     public String profile(@PathVariable Long id, Model model) {
         model.addAttribute("player", playerService.getById(id));
+        model.addAttribute("allSchedules", scheduleService.getAll());
             return "profile.jsp";
     }
 

@@ -30,6 +30,7 @@
                 <th>Number</th>
                 <th>First Name</th>
                 <th>Last Name</th>
+                <th>Team</th>
                 <th>Position</th>
                 <th>Throwing Hand</th>
                 <th>Hitting Hand</th>
@@ -41,6 +42,7 @@
                         <td>${ player.jerseyNumber }</td>
                         <td>${ player.firstName }</td>
                         <td>${ player.lastName }</td>
+                        <td>${player.team.teamName}</td>
                         <td>
                                 <c:choose>
                                     <c:when test="${player.throwingHand}">
